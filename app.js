@@ -16,8 +16,14 @@ require("./config")(app);
 
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controlled from the routes/index.js
-const allRoutes = require("./routes/index.routes");
-app.use("/api", allRoutes);
+const homeRoutes = require("./routes/index.routes");
+app.use("/api", homeRoutes);
+
+const projectRoutes = require ("./routes/project.routes");
+app.use("/api", projectRoutes);
+
+const taskRoutes = require ("./routes/task.routes");
+app.use("/api", taskRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
